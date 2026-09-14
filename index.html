@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Muhtarma Galaxy 🌌✨</title>
+    <title>Suno Muhtarma... 🌙✨</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,207 +12,164 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         body {
-            background: #030008;
+            background: radial-gradient(circle at center, #1e051d, #0f0210, #050005);
             color: #fff;
             min-height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            position: relative;
+            padding: 20px;
         }
-        /* Cosmic Starfield Canvas background effect via CSS */
-        .stars {
-            position: absolute;
+        .poetry-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 105, 180, 0.2);
             width: 100%;
-            height: 100%;
-            background-image: radial-gradient(white 1px, transparent 0);
-            background-size: 40px 40px;
-            opacity: 0.15;
-            z-index: 1;
-        }
-        .galaxy-container {
+            max-width: 440px;
+            border-radius: 35px;
+            padding: 35px 25px;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 105, 180, 0.1);
+            text-align: center;
             position: relative;
             z-index: 10;
-            text-align: center;
-            width: 100%;
-            max-width: 450px;
-            padding: 20px;
         }
-        .central-core {
-            width: 110px;
-            height: 110px;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
-            border-radius: 50%;
-            margin: 0 auto 30px auto;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 38px;
-            box-shadow: 0 0 40px rgba(255, 65, 108, 0.7);
-            animation: pulseCore 3s infinite alternate ease-in-out;
-            cursor: pointer;
-            border: 2px solid rgba(255, 255, 255, 0.4);
+        .crown-icon {
+            font-size: 42px;
+            margin-bottom: 15px;
+            animation: floatCrown 3s ease-in-out infinite;
         }
-        @keyframes pulseCore {
-            0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 65, 108, 0.5); }
-            100% { transform: scale(1.08); box-shadow: 0 0 60px rgba(255, 65, 108, 0.9); }
+        @keyframes floatCrown {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
         }
         h1 {
-            font-size: 26px;
-            background: linear-gradient(to right, #ff99cc, #ffccff, #99ccff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 8px;
-            font-weight: 700;
+            font-size: 22px;
+            letter-spacing: 2px;
+            color: #ffb8d9;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
         }
-        .subtitle {
-            font-size: 13px;
-            color: #aaa;
-            margin-bottom: 30px;
+        .sub-tag {
+            font-size: 12px;
+            color: #a08095;
+            margin-bottom: 25px;
             letter-spacing: 1px;
         }
-        /* Orbiting Nodes Grid */
-        .orbit-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        .planet-node {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 18px 12px;
+        .poetry-box {
+            background: rgba(0, 0, 0, 0.4);
             border-radius: 20px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            text-align: center;
-        }
-        .planet-node:hover {
-            background: rgba(255, 255, 255, 0.12);
-            transform: translateY(-5px) scale(1.03);
-            border-color: rgba(255, 153, 204, 0.4);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-        .planet-icon {
-            font-size: 24px;
-            margin-bottom: 6px;
-        }
-        .planet-title {
-            font-size: 13px;
-            font-weight: 600;
-            color: #ffd1dc;
-        }
-        /* Display Modal Box */
-        .display-screen {
-            background: rgba(15, 10, 25, 0.85);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            padding: 20px;
-            min-height: 90px;
+            padding: 30px 20px;
+            min-height: 160px;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-align: center;
-            font-size: 15px;
-            line-height: 1.6;
-            color: #f1f1f1;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 25px;
+            position: relative;
         }
-        /* Floating neon particles */
-        .neon-particle {
+        #poetryText {
+            font-size: 17px;
+            line-height: 1.8;
+            color: #fce4ec;
+            font-style: italic;
+            transition: all 0.4s ease;
+        }
+        .btn-poetry {
+            background: linear-gradient(135deg, #ff2a75, #b31458);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 18px;
+            font-weight: 600;
+            font-size: 15px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(255, 42, 117, 0.4);
+            transition: transform 0.2s, background 0.3s;
+            letter-spacing: 0.5px;
+        }
+        .btn-poetry:active {
+            transform: scale(0.97);
+        }
+        .counter-num {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #7a5c6d;
+        }
+        /* Floating romantic petals/hearts */
+        .petal {
             position: absolute;
             pointer-events: none;
-            animation: floatParticle 3.5s linear infinite;
-            z-index: 2;
+            animation: fallPetal 4s linear infinite;
+            z-index: 1;
         }
-        @keyframes floatParticle {
-            0% { transform: translateY(105vh) scale(0.4); opacity: 1; }
-            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        @keyframes fallPetal {
+            0% { transform: translateY(-10vh) rotate(0deg) scale(0.6); opacity: 1; }
+            100% { transform: translateY(105vh) rotate(360deg) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
 <body>
 
-    <div class="stars"></div>
+    <div class="poetry-card">
+        <div class="crown-icon">🌹✨</div>
+        <h1>Suno Muhtarma...</h1>
+        <div class="sub-tag">DIL KI GEHRAIYON SE KUCH KHAASE ALFAS</div>
 
-    <div class="galaxy-container">
-        <!-- Pulsing Center Core -->
-        <div class="central-core" onclick="coreShockwave()">
-            👑
+        <div class="poetry-box">
+            <p id="poetryText">"Aapka yun be-wajah yaad aana, aur phir chehre par ek pyari si muskaanajaa jaana... Maano jaise zindagi mein kisi khoobsurat geet ka aana ho. 🥀✨"</p>
         </div>
 
-        <h1>Muhtarma Galaxy</h1>
-        <p class="subtitle">TAP ANY PLANET TO EXPLORE THE COSMOS ✨</p>
-
-        <!-- Interactive Orbit Nodes -->
-        <div class="orbit-grid">
-            <div class="planet-node" onclick="showSecret('note')">
-                <div class="planet-icon">💌</div>
-                <div class="planet-title">Secret Notes</div>
-            </div>
-            <div class="planet-node" onclick="showSecret('vibe')">
-                <div class="planet-icon">💫</div>
-                <div class="planet-title">Vibe Check</div>
-            </div>
-            <div class="planet-node" onclick="showSecret('task')">
-                <div class="planet-icon">☕</div>
-                <div class="planet-title">Cute Tasks</div>
-            </div>
-            <div class="planet-node" onclick="showSecret('praise')">
-                <div class="planet-icon">🌸</div>
-                <div class="planet-title">Special Crown</div>
-            </div>
-        </div>
-
-        <!-- Output Screen -->
-        <div class="display-screen" id="outputScreen">
-            Suno Muhtarma... Upar kisi bhi planet par click karo aur magic dekho! 🌙✨
-        </div>
+        <button class="btn-poetry" onclick="nextPoetry()">Agli Shayari Padho 💌</button>
+        <div class="counter-num" id="counter">Ehsas 1 of 5</div>
     </div>
 
     <script>
-        const secrets = {
-            note: "Suno Muhtarma... Aapki baaton mein aisi ajeeb si khichav aur sukoon hai jo kahin aur nahi milta! ☕🤍",
-            vibe: "Vibe Analysis Result: 1000% Supreme Queen Energy & Infinite Aesthetic Glow! 👑✨",
-            task: "Cosmic Task: Ek lambi saans lo, saari tension drop karo aur ek pyaari si smile paas karo! 😊🌸",
-            praise: "Duniya chahe jaisi bhi ho, aapka yeh cute mood aur smile hamesha on honi chahiye! 🦋💖"
-        };
+        const poeticWishes = [
+            "\"Aapka yun be-wajah yaad aana, aur phir chehre par ek pyari si muskaan aa jaana... Maano jaise zindagi mein kisi khoobsurat geet ka aana ho. 🥀✨\"",
+            "\"Log kehte hain ke khubsurati chehre mein hoti hai, par unhe kya pata ke sukoon toh aapki baaton aur aapki sadgi mein basta hai. ☕🤍\"",
+            "\"Fursat jab bhi milti hai kayanat ko, woh zaroor aapki muskaan banane mein waqt lagati hogi. Aap hasti ho toh lagta hai raunak aur badh gayi hai! 🌙🦋\"",
+            "\"Anjaan raahon mein bhi agar aapka zikr ho jaye, toh dil ko ek alag hi apnapan mehsoos hota hai. Aap bas yunhi hamesha muskurati raho! 🌸💫\"",
+            "\"Tareeifein toh bohot hain aapke liye, par alfaas kam pad jaate hain. Aap jaisi ho, bas aisi hi bemisaal rehna hamesha! 👑💖\""
+        ];
 
-        function showSecret(type) {
-            const screen = document.getElementById("outputScreen");
-            screen.style.opacity = 0;
-            screen.style.transform = "scale(0.95)";
+        let index = 0;
+
+        function nextPoetry() {
+            index = (index + 1) % poeticWishes.length;
+            const textElement = document.getElementById("poetryText");
+            
+            // Fade out & slide effect
+            textElement.style.opacity = 0;
+            textElement.style.transform = "translateY(10px)";
             
             setTimeout(() => {
-                screen.innerText = secrets[type];
-                screen.style.opacity = 1;
-                screen.style.transform = "scale(1)";
-            }, 200);
+                textElement.innerText = poeticWishes[index];
+                textElement.style.opacity = 1;
+                textElement.style.transform = "translateY(0)";
+                document.getElementById("counter").innerText = `Ehsas ${index + 1} of ${poeticWishes.length}`;
+            }, 300);
 
-            spawnNeonParticle("✨");
+            spawnPetal();
         }
 
-        function coreShockwave() {
-            const screen = document.getElementById("outputScreen");
-            screen.innerText = "🌟 Muhtarma Core Activated! You are officially the main character of this universe! 🚀👑";
-            spawnNeonParticle("💖");
-        }
-
-        function spawnNeonParticle(symbol) {
+        function spawnPetal() {
             const p = document.createElement("div");
-            p.classList.add("neon-particle");
-            p.innerHTML = symbol;
+            p.classList.add("petal");
+            p.innerHTML = Math.random() > 0.5 ? "🥀" : "✨";
             p.style.left = Math.random() * window.innerWidth + "px";
-            p.style.animationDuration = (Math.random() * 2 + 2) + "s";
+            p.style.animationDuration = (Math.random() * 2 + 3) + "s";
             p.style.fontSize = (Math.random() * 10 + 16) + "px";
             document.body.appendChild(p);
-            setTimeout(() => p.remove(), 3500);
+
+            setTimeout(() => {
+                p.remove();
+            }, 4000);
         }
 
-        document.getElementById("outputScreen").style.transition = "all 0.3s ease";
+        document.getElementById("poetryText").style.transition = "all 0.3s ease";
     </script>
 </body>
 </html>
