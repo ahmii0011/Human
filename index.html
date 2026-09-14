@@ -1,721 +1,218 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Happy Birthday Human 🎂</title><style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Muhtarma Galaxy 🌌✨</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: #030008;
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+        /* Cosmic Starfield Canvas background effect via CSS */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(white 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        .galaxy-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+        }
+        .central-core {
+            width: 110px;
+            height: 110px;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            border-radius: 50%;
+            margin: 0 auto 30px auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 38px;
+            box-shadow: 0 0 40px rgba(255, 65, 108, 0.7);
+            animation: pulseCore 3s infinite alternate ease-in-out;
+            cursor: pointer;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+        }
+        @keyframes pulseCore {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(255, 65, 108, 0.5); }
+            100% { transform: scale(1.08); box-shadow: 0 0 60px rgba(255, 65, 108, 0.9); }
+        }
+        h1 {
+            font-size: 26px;
+            background: linear-gradient(to right, #ff99cc, #ffccff, #99ccff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .subtitle {
+            font-size: 13px;
+            color: #aaa;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+        /* Orbiting Nodes Grid */
+        .orbit-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        .planet-node {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 18px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-align: center;
+        }
+        .planet-node:hover {
+            background: rgba(255, 255, 255, 0.12);
+            transform: translateY(-5px) scale(1.03);
+            border-color: rgba(255, 153, 204, 0.4);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+        }
+        .planet-icon {
+            font-size: 24px;
+            margin-bottom: 6px;
+        }
+        .planet-title {
+            font-size: 13px;
+            font-weight: 600;
+            color: #ffd1dc;
+        }
+        /* Display Modal Box */
+        .display-screen {
+            background: rgba(15, 10, 25, 0.85);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 20px;
+            min-height: 90px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-size: 15px;
+            line-height: 1.6;
+            color: #f1f1f1;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.6);
+        }
+        /* Floating neon particles */
+        .neon-particle {
+            position: absolute;
+            pointer-events: none;
+            animation: floatParticle 3.5s linear infinite;
+            z-index: 2;
+        }
+        @keyframes floatParticle {
+            0% { transform: translateY(105vh) scale(0.4); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
 
-body{
-    font-family:Arial,sans-serif;
-    background:#08152d;
-    color:white;
-    min-height:100vh;
-    overflow-x:hidden;
-}
+    <div class="stars"></div>
 
-/* PAGES */
-.page{
-    display:none;
-    min-height:100vh;
-    padding:25px 15px;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-}
+    <div class="galaxy-container">
+        <!-- Pulsing Center Core -->
+        <div class="central-core" onclick="coreShockwave()">
+            👑
+        </div>
 
-.page.active{
-    display:flex;
-}
+        <h1>Muhtarma Galaxy</h1>
+        <p class="subtitle">TAP ANY PLANET TO EXPLORE THE COSMOS ✨</p>
 
-/* CARD */
-.card{
-    width:100%;
-    max-width:700px;
-    background:#10264b;
-    border:2px solid #315fa8;
-    border-radius:25px;
-    padding:35px 22px;
-    text-align:center;
-    box-shadow:0 10px 40px rgba(0,0,0,.4);
-}
+        <!-- Interactive Orbit Nodes -->
+        <div class="orbit-grid">
+            <div class="planet-node" onclick="showSecret('note')">
+                <div class="planet-icon">💌</div>
+                <div class="planet-title">Secret Notes</div>
+            </div>
+            <div class="planet-node" onclick="showSecret('vibe')">
+                <div class="planet-icon">💫</div>
+                <div class="planet-title">Vibe Check</div>
+            </div>
+            <div class="planet-node" onclick="showSecret('task')">
+                <div class="planet-icon">☕</div>
+                <div class="planet-title">Cute Tasks</div>
+            </div>
+            <div class="planet-node" onclick="showSecret('praise')">
+                <div class="planet-icon">🌸</div>
+                <div class="planet-title">Special Crown</div>
+            </div>
+        </div>
 
-h1{
-    font-size:clamp(35px,8vw,65px);
-    margin-bottom:15px;
-}
+        <!-- Output Screen -->
+        <div class="display-screen" id="outputScreen">
+            Suno Muhtarma... Upar kisi bhi planet par click karo aur magic dekho! 🌙✨
+        </div>
+    </div>
 
-h2{
-    font-size:28px;
-    margin-bottom:20px;
-    color:#ffd166;
-}
+    <script>
+        const secrets = {
+            note: "Suno Muhtarma... Aapki baaton mein aisi ajeeb si khichav aur sukoon hai jo kahin aur nahi milta! ☕🤍",
+            vibe: "Vibe Analysis Result: 1000% Supreme Queen Energy & Infinite Aesthetic Glow! 👑✨",
+            task: "Cosmic Task: Ek lambi saans lo, saari tension drop karo aur ek pyaari si smile paas karo! 😊🌸",
+            praise: "Duniya chahe jaisi bhi ho, aapka yeh cute mood aur smile hamesha on honi chahiye! 🦋💖"
+        };
 
-p{
-    line-height:1.8;
-    font-size:16px;
-    color:#e1ebff;
-    margin:15px 0;
-}
+        function showSecret(type) {
+            const screen = document.getElementById("outputScreen");
+            screen.style.opacity = 0;
+            screen.style.transform = "scale(0.95)";
+            
+            setTimeout(() => {
+                screen.innerText = secrets[type];
+                screen.style.opacity = 1;
+                screen.style.transform = "scale(1)";
+            }, 200);
 
-/* BUTTON */
-button{
-    border:none;
-    padding:15px 25px;
-    border-radius:30px;
-    margin:12px 5px;
-    background:#3f7cff;
-    color:white;
-    font-size:16px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-button:hover{
-    transform:scale(1.03);
-}
-
-.gold{
-    background:#e9ad32;
-    color:#17223b;
-}
-
-/* PASSWORD */
-.password{
-    display:flex;
-    justify-content:center;
-    gap:10px;
-    margin:25px 0;
-}
-
-.password input{
-    width:55px;
-    height:60px;
-    font-size:25px;
-    text-align:center;
-    border-radius:12px;
-    border:2px solid #4d7ed0;
-    background:#08152d;
-    color:white;
-}
-
-/* COUNTDOWN */
-.count{
-    font-size:100px;
-    font-weight:bold;
-    color:#ffd166;
-}
-
-/* TASK OPTIONS */
-.options{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:10px;
-    margin-top:20px;
-}
-
-.options button{
-    margin:0;
-    background:#183665;
-}
-
-/* WISH */
-.wish{
-    text-align:left;
-}
-
-.wish p{
-    font-size:17px;
-}
-
-/* CAKE */
-.cake-box{
-    margin:30px auto;
-}
-
-.cake{
-    font-size:150px;
-    cursor:pointer;
-    transition:.3s;
-}
-
-.cake.cut{
-    transform:scale(.85) rotate(-4deg);
-}
-
-.candle{
-    font-size:50px;
-    cursor:pointer;
-}
-
-/* BALLOONS */
-.balloons{
-    min-height:350px;
-    position:relative;
-    width:100%;
-}
-
-.balloon{
-    width:75px;
-    height:95px;
-    border-radius:50%;
-    position:absolute;
-    cursor:pointer;
-    animation:float 3s infinite alternate ease-in-out;
-}
-
-.balloon:nth-child(1){
-    background:#3978ff;
-    left:5%;
-    top:20px;
-}
-
-.balloon:nth-child(2){
-    background:#e65380;
-    left:25%;
-    top:150px;
-}
-
-.balloon:nth-child(3){
-    background:#e9ad32;
-    left:45%;
-    top:40px;
-}
-
-.balloon:nth-child(4){
-    background:#48b879;
-    left:65%;
-    top:180px;
-}
-
-.balloon:nth-child(5){
-    background:#9a62e6;
-    left:80%;
-    top:60px;
-}
-
-.balloon:after{
-    content:"";
-    position:absolute;
-    width:2px;
-    height:70px;
-    background:white;
-    top:95px;
-    left:50%;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(0);
-    }
-    to{
-        transform:translateY(-20px);
-    }
-}
-
-.pop{
-    animation:pop .5s forwards!important;
-}
-
-@keyframes pop{
-    to{
-        transform:scale(1.8);
-        opacity:0;
-    }
-}
-
-/* FINAL */
-.final-name{
-    font-size:clamp(60px,14vw,110px);
-    color:#ffd166;
-    font-weight:bold;
-}
-
-.message{
-    color:#ffd166;
-    min-height:50px;
-    font-weight:bold;
-}
-
-/* CONFETTI */
-.confetti{
-    position:fixed;
-    top:-20px;
-    width:10px;
-    height:15px;
-    z-index:100;
-    animation:fall 4s linear forwards;
-}
-
-@keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
-        opacity:0;
-    }
-}
-
-@media(max-width:500px){
-    .options{
-        grid-template-columns:1fr;
-    }
-
-    .card{
-        padding:30px 18px;
-    }
-}
-</style></head><body><!-- PAGE 1 PASSWORD --><section class="page active" id="page1"><div class="card"><h1>Hey Human 👀</h1><h2>🎂 Birthday Surprise</h2><p>
-There is a special surprise waiting for you.
-But first, enter the secret code.
-</p><div class="password">
-<input id="a" maxlength="1" inputmode="numeric">
-<input id="b" maxlength="1" inputmode="numeric">
-<input id="c" maxlength="1" inputmode="numeric">
-<input id="d" maxlength="1" inputmode="numeric">
-</div><button onclick="checkPassword()">UNLOCK 🔓</button>
-
-<p class="message" id="passwordMessage"></p></div></section><!-- PAGE 2 COUNTDOWN --><section class="page" id="page2"><div class="card"><h2>Get Ready Human... 🎉</h2><div class="count" id="count">3</div><p>Your birthday journey is about to begin!</p></div></section><!-- PAGE 3 INTRO --><section class="page" id="page3"><div class="card"><h1>Happy Birthday Human! 🎂</h1><p>
-Welcome to your special birthday journey! But there is one rule...
-you have to complete some fun challenges before reaching the final surprise.
-</p><button class="gold" onclick="showPage(4)">
-START THE JOURNEY 🎮
-</button></div></section><!-- TASK 1 --><section class="page" id="page4"><div class="card"><h2>Challenge 1 🎯</h2><p>Today is Human's ______?</p><div class="options"><button onclick="wrong()">Exam 😭</button>
-
-<button onclick="right(5)">
-Birthday 🎂
-</button><button onclick="wrong()">Homework 📚</button>
-
-<button onclick="wrong()">School Day 😭</button>
-
-</div><p class="message" id="taskMessage"></p></div></section><!-- WISH 1 --><section class="page" id="page5"><div class="card wish"><h2>💙 A Special Wish For You</h2><p>
-Happy Birthday, Human! Today is not just another normal day. It is a
-beautiful reminder that a completely new chapter of your life has started.
-Another year full of new memories, new lessons, new experiences and new
-opportunities is waiting for you.
-</p><p>
-I hope this new year brings you many reasons to smile. I hope you find
-success in the things that you truly care about, confidence when you need
-it and patience when things take time.
-</p><p>
-Never think that you have to figure everything out immediately. Life is a
-journey, and every small step you take can eventually lead you somewhere
-amazing.
-</p><button onclick="showPage(6)">
-NEXT CHALLENGE →
-</button></div></section><!-- TASK 2 --><section class="page" id="page6"><div class="card"><h2>Challenge 2 🔐</h2><p>
-What was the secret code that opened this birthday surprise?
-</p><input id="codeAnswer"
-style="padding:15px;font-size:20px;text-align:center;border-radius:10px;border:none;"
-inputmode="numeric">
-
-<br><button onclick="checkCode()">
-CHECK ANSWER
-</button><p class="message" id="codeMessage"></p></div></section><!-- WISH 2 --><section class="page" id="page7"><div class="card wish"><h2>🌟 A Wish For Your Future</h2><p>
-Human, I hope your future is filled with opportunities that help you grow
-into the person you want to become. I hope you keep learning new things,
-trying different ideas and never stop believing that you can improve.
-</p><p>
-There may be difficult days, confusing moments and challenges that seem
-too big at first. But every difficult phase teaches something. Every
-mistake can become a lesson, and every small achievement is proof that
-you are moving forward.
-</p><p>
-Keep going at your own pace. You do not need to copy anyone else's journey.
-Your story is different, and the best chapters may still be waiting ahead.
-</p><button class="gold" onclick="showPage(8)">
-NEXT TASK 🎁
-</button></div></section><!-- TASK 3 --><section class="page" id="page8"><div class="card"><h2>Challenge 3 🎁</h2><p>
-Choose the correct birthday gift!
-</p><div class="options"><button onclick="giftWrong()">🎁 Gift 1</button>
-
-<button onclick="giftWrong()">🎁 Gift 2</button>
-
-<button onclick="giftCorrect()">🎁 Gift 3</button>
-
-<button onclick="giftWrong()">🎁 Gift 4</button>
-
-</div><p class="message" id="giftMessage"></p></div></section><!-- WISH 3 --><section class="page" id="page9"><div class="card wish"><h2>✨ Keep Being Yourself</h2><p>
-One of the best things I can wish for you is that you never lose the good
-parts of yourself while growing and changing. Keep your personality, your
-dreams, your sense of humour and the things that make you unique.
-</p><p>
-You do not have to become exactly like someone else to do well in life.
-Your journey belongs to you. Keep learning, keep improving and keep
-becoming stronger with every experience.
-</p><p>
-Celebrate your small wins, enjoy your good moments and remember that
-progress does not always happen in one huge step. Sometimes the smallest
-steps make the biggest difference over time.
-</p><button onclick="showPage(10)">
-FINAL CHALLENGE →
-</button></div></section><!-- TASK 4 --><section class="page" id="page10"><div class="card"><h2>Final Challenge 🏆</h2><p>
-Which one is the most important rule for today?
-</p><div class="options"><button onclick="wrongFinal()">Do Homework 😭</button>
-
-<button onclick="rightFinal()">Enjoy Your Birthday 🎂</button>
-
-<button onclick="wrongFinal()">Take An Exam 📚</button>
-
-<button onclick="wrongFinal()">Be Serious All Day 😂</button>
-
-</div><p class="message" id="finalMessage"></p></div></section><!-- BEFORE CAKE --><section class="page" id="page11"><div class="card"><h1>All Challenges Completed! 🎉</h1><p>
-You completed every challenge successfully. Now there is only one important
-birthday tradition left...
-</p><h2>It's time to cut the cake! 🎂</h2><button class="gold" onclick="showPage(12)">
-LET'S GO →
-</button></div></section><!-- CAKE --><section class="page" id="page12"><div class="card"><h1>Cut The Cake! 🎂</h1><p>
-First tap the candle to make your wish.
-Then tap the cake!
-</p><div class="cake-box"><div class="candle" id="candle"
-onclick="blowCandle()">
-🕯️
-</div><div class="cake" id="cake"
-onclick="cutCake()">
-🎂
-</div></div><p class="message" id="cakeMessage"></p><button id="cakeButton"
-style="display:none;"
-onclick="showPage(13)">
-CONTINUE THE PARTY 🎉
-</button>
-
-</div></section><!-- BALLOONS --><section class="page" id="page13"><div class="card"><h1>Pop The Balloons! 🎈</h1><p>
-Every balloon has a small surprise wish inside.
-Pop them all!
-</p><p class="message" id="balloonMessage">
-Choose a balloon 🎈
-</p><div class="balloons"><div class="balloon"
-onclick="popBalloon(this,'May your dreams always stay big! 🌟')">
-</div><div class="balloon"
-onclick="popBalloon(this,'May you always have reasons to smile! 😊')">
-</div><div class="balloon"
-onclick="popBalloon(this,'May your future be full of great opportunities! 🚀')">
-</div><div class="balloon"
-onclick="popBalloon(this,'Stay confident and keep moving forward! 💙')">
-</div><div class="balloon"
-onclick="popBalloon(this,'Happy Birthday once again, Human! 🎂')">
-</div></div><button id="balloonButton"
-style="display:none;"
-class="gold"
-onclick="showPage(14)">
-FINAL SURPRISE 🌟
-</button>
-
-</div></section><!-- FINAL BIG WISH --><section class="page" id="page14"><div class="card wish"><h2>⭐ The Biggest Wish ⭐</h2><p>
-Human, today I wish for you much more than just a happy birthday. I hope
-that this new year of your life gives you moments that you will look back
-on and genuinely smile about.
-</p><p>
-I hope you get closer to the dreams that matter to you. I hope you find
-people who appreciate you, opportunities that help you grow and experiences
-that teach you something valuable.
-</p><p>
-May you always have the courage to try again when something does not work
-out. May you have patience when success takes time, and confidence when you
-need to take the next step.
-</p><p>
-Life will keep changing, and every year will bring something different.
-But I hope you continue becoming wiser, kinder and more confident in your
-own journey. Take your time, learn from every experience and do not forget
-to enjoy the good moments along the way.
-</p><p>
-So here is to another year of memories, laughter, learning, surprises and
-new possibilities. May this chapter of your life be full of things that
-make you proud and happy.
-</p><h2 style="text-align:center;">
-Happy Birthday, Human! 🎂🎉💙
-</h2><button class="gold" onclick="showPage(15)">
-ONE LAST PAGE →
-</button></div></section><!-- CLOSING --><section class="page" id="page15"><div class="card"><h2>The Birthday Journey Is Complete 🎉</h2><div class="final-name">HUMAN</div><p>
-Your little birthday surprise has now reached its final page.
-I hope you enjoyed every challenge, every message, every balloon
-and every small surprise along the way.
-</p><p>
-Keep smiling, keep learning and keep moving forward.
-May this new year bring many beautiful memories.
-</p><h2>Happy Birthday! 🎂</h2><p style="font-size:60px;">
-🎂 🎈 🎉 💙
-</p><button onclick="showPage(1)">
-REPLAY ↻
-</button></div></section><script>
-
-/* PAGE CHANGE */
-function showPage(number){
-
-    document.querySelectorAll(".page").forEach(function(page){
-        page.classList.remove("active");
-    });
-
-    document.getElementById("page"+number).classList.add("active");
-
-    window.scrollTo(0,0);
-
-    if(number === 2){
-        startCountdown();
-    }
-}
-
-
-/* AUTO NEXT PASSWORD INPUT */
-var passInputs=document.querySelectorAll(".password input");
-
-passInputs.forEach(function(input,index){
-
-    input.addEventListener("input",function(){
-
-        if(input.value && index<passInputs.length-1){
-            passInputs[index+1].focus();
+            spawnNeonParticle("✨");
         }
 
-    });
-
-});
-
-
-/* PASSWORD */
-function checkPassword(){
-
-    var password=
-    document.getElementById("a").value+
-    document.getElementById("b").value+
-    document.getElementById("c").value+
-    document.getElementById("d").value;
-
-    if(password==="0019"){
-
-        document.getElementById("passwordMessage").innerHTML=
-        "Correct! Surprise unlocked 🎉";
-
-        setTimeout(function(){
-            showPage(2);
-        },700);
-
-    }else{
-
-        document.getElementById("passwordMessage").innerHTML=
-        "Wrong code 😭 Try again!";
-
-    }
-}
-
-
-/* COUNTDOWN */
-function startCountdown(){
-
-    var number=3;
-
-    document.getElementById("count").innerHTML=number;
-
-    var timer=setInterval(function(){
-
-        number--;
-
-        document.getElementById("count").innerHTML=number;
-
-        if(number===0){
-
-            clearInterval(timer);
-
-            setTimeout(function(){
-                showPage(3);
-            },700);
-
+        function coreShockwave() {
+            const screen = document.getElementById("outputScreen");
+            screen.innerText = "🌟 Muhtarma Core Activated! You are officially the main character of this universe! 🚀👑";
+            spawnNeonParticle("💖");
         }
 
-    },1000);
-}
-
-
-/* TASK 1 */
-function right(page){
-
-    document.getElementById("taskMessage").innerHTML=
-    "Correct! Of course, it's his Birthday! 🎂🎉";
-
-    setTimeout(function(){
-        showPage(page);
-    },700);
-}
-
-function wrong(){
-
-    document.getElementById("taskMessage").innerHTML=
-    "Wrong answer brooo 😭 Try again!";
-
-}
-
-
-/* TASK 2 */
-function checkCode(){
-
-    var code=document.getElementById("codeAnswer").value;
-
-    if(code==="0019"){
-
-        document.getElementById("codeMessage").innerHTML=
-        "Correct! You remembered the secret code 🔓";
-
-        setTimeout(function(){
-            showPage(7);
-        },700);
-
-    }else{
-
-        document.getElementById("codeMessage").innerHTML=
-        "Nope 😭 Think about the first page!";
-
-    }
-}
-
-
-/* TASK 3 */
-function giftCorrect(){
-
-    document.getElementById("giftMessage").innerHTML=
-    "🎉 Correct! You found the special gift!";
-
-    createConfetti();
-
-    setTimeout(function(){
-        showPage(9);
-    },900);
-}
-
-function giftWrong(){
-
-    document.getElementById("giftMessage").innerHTML=
-    "Empty gift 😭 Try another one!";
-
-}
-
-
-/* TASK 4 */
-function rightFinal(){
-
-    document.getElementById("finalMessage").innerHTML=
-    "YESSS! Enjoying your birthday is the correct answer 🎂🎉";
-
-    setTimeout(function(){
-        showPage(11);
-    },800);
-}
-
-function wrongFinal(){
-
-    document.getElementById("finalMessage").innerHTML=
-    "Nooo brooo 😂 Today is for enjoying!";
-
-}
-
-
-/* CAKE */
-var candleBlown=false;
-
-function blowCandle(){
-
-    document.getElementById("candle").innerHTML="💨";
-
-    candleBlown=true;
-
-    document.getElementById("cakeMessage").innerHTML=
-    "Wish made! Now tap the cake to cut it 🎂";
-
-}
-
-function cutCake(){
-
-    if(!candleBlown){
-
-        document.getElementById("cakeMessage").innerHTML=
-        "First tap the candle brooo 😭🕯️";
-
-        return;
-    }
-
-    document.getElementById("cake").classList.add("cut");
-
-    document.getElementById("cakeMessage").innerHTML=
-    "🎉 CAKE CUT SUCCESSFULLY! HAPPY BIRTHDAY HUMAN! 🎂";
-
-    createConfetti();
-
-    document.getElementById("cakeButton").style.display="inline-block";
-
-}
-
-
-/* BALLOONS */
-var balloonCount=0;
-
-function popBalloon(balloon,message){
-
-    if(balloon.classList.contains("pop")){
-        return;
-    }
-
-    balloon.classList.add("pop");
-
-    balloonCount++;
-
-    document.getElementById("balloonMessage").innerHTML=message;
-
-    createConfetti();
-
-    if(balloonCount===5){
-
-        setTimeout(function(){
-
-            document.getElementById("balloonMessage").innerHTML=
-            "All balloons popped! Final surprise unlocked 🎉";
-
-            document.getElementById("balloonButton").style.display=
-            "inline-block";
-
-        },600);
-
-    }
-
-}
-
-
-/* CONFETTI */
-function createConfetti(){
-
-    var colors=[
-        "#3978ff",
-        "#e65380",
-        "#ffd166",
-        "#48b879",
-        "#ffffff"
-    ];
-
-    for(var i=0;i<50;i++){
-
-        var piece=document.createElement("div");
-
-        piece.className="confetti";
-
-        piece.style.left=Math.random()*100+"vw";
-
-        piece.style.background=
-        colors[Math.floor(Math.random()*colors.length)];
-
-        piece.style.animationDuration=
-        (2+Math.random()*2)+"s";
-
-        document.body.appendChild(piece);
-
-        setTimeout(function(){
-
-            if(piece){
-                piece.remove();
-            }
-
-        },4500);
-
-    }
-
-}
-
-</script></body>
-  </html>
+        function spawnNeonParticle(symbol) {
+            const p = document.createElement("div");
+            p.classList.add("neon-particle");
+            p.innerHTML = symbol;
+            p.style.left = Math.random() * window.innerWidth + "px";
+            p.style.animationDuration = (Math.random() * 2 + 2) + "s";
+            p.style.fontSize = (Math.random() * 10 + 16) + "px";
+            document.body.appendChild(p);
+            setTimeout(() => p.remove(), 3500);
+        }
+
+        document.getElementById("outputScreen").style.transition = "all 0.3s ease";
+    </script>
+</body>
+</html>
